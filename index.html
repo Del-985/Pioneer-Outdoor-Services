@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pioneer Outdoor Services provides dependable outdoor property services with practical scheduling, clear communication, and year-round support.">
-  <title>Pioneer Outdoor Services</title>
+  <meta name="description" content="Pioneer Outdoor Services provides reliable snow removal, sidewalk clearing, and salting in Toledo, Ohio.">
+  <title>Pioneer Outdoor Services | Toledo, Ohio</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
@@ -21,42 +21,67 @@
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
         <span class="sr-only">Toggle navigation</span>
-        <span></span><span></span><span></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </button>
 
-      <ul class="nav-links" id="main-nav">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div class="nav-menu" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#service-area">Service Area</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <a class="nav-cta" href="#request-service">Request Service</a>
+      </div>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="page-shell hero-layout">
         <div class="hero-copy">
-          <p class="eyebrow">Outdoor property services</p>
-          <h1>Dependable work.<br>Clear communication.<br>Done right.</h1>
+          <p class="eyebrow">Snow & ice service • Toledo, Ohio</p>
+          <h1 id="hero-heading">Reliable outdoor service when the weather turns.</h1>
           <p class="hero-lead" data-business-description>
-            Pioneer Outdoor Services provides practical, dependable property services built around reliable scheduling and straightforward service.
+            Pioneer Outdoor Services provides dependable snow removal, sidewalk clearing, and salting for Toledo-area homes, with straightforward pricing and clear communication.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Request service</a>
-            <a class="button button-secondary" href="#services">View services</a>
+            <a class="button button-primary" href="#request-service">Request Service</a>
+            <a class="button button-secondary" href="#services">View Services</a>
+          </div>
+          <div class="hero-meta" aria-label="Service highlights">
+            <span>Residential service</span>
+            <span>Recurring options</span>
+            <span>Local Toledo service</span>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Pioneer Outdoor Services highlights">
-          <p class="card-kicker">Built for local property needs</p>
-          <h2>Seasonal service without the runaround.</h2>
-          <ul>
-            <li>Responsive scheduling</li>
-            <li>Clear service expectations</li>
-            <li>Residential property support</li>
-            <li>Year-round growth into additional outdoor services</li>
+        <aside class="hero-panel" aria-label="Winter service summary">
+          <p class="panel-label">Winter service</p>
+          <h2>Simple, dependable snow response.</h2>
+          <div class="hero-price">
+            <span>Driveway clearing</span>
+            <strong>Starting at $40</strong>
+          </div>
+          <ul class="check-list">
+            <li>Driveway snow clearing</li>
+            <li>Sidewalk and walkway clearing</li>
+            <li>Salting available</li>
+            <li>Recurring storm service available</li>
           </ul>
+          <a class="text-link" href="#pricing">See pricing</a>
         </aside>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Why choose Pioneer Outdoor Services">
+      <div class="page-shell trust-grid">
+        <div><strong>Local</strong><span>Serving the Toledo area</span></div>
+        <div><strong>Straightforward</strong><span>Clear service and pricing</span></div>
+        <div><strong>Dependable</strong><span>Built around reliable response</span></div>
+        <div><strong>Flexible</strong><span>One-time or recurring service</span></div>
       </div>
     </section>
 
@@ -64,64 +89,253 @@
       <div class="page-shell">
         <div class="section-heading">
           <div>
-            <p class="section-label">Services</p>
-            <h2 id="services-heading">Outdoor work you can count on.</h2>
+            <p class="section-label">Current services</p>
+            <h2 id="services-heading">Winter property care without the runaround.</h2>
           </div>
-          <p>Our service offering will expand as Pioneer Outdoor Services grows, while keeping the same focus on dependable execution.</p>
+          <p>Pioneer Outdoor Services is launching with focused winter services we can perform consistently, then expanding into additional seasonal outdoor work as the business grows.</p>
         </div>
 
         <div class="service-grid">
-          <article class="service-card">
-            <span class="service-number">01</span>
-            <h3>Snow Clearing</h3>
-            <p>Driveway and access clearing designed around reliable storm response and practical scheduling.</p>
+          <article class="service-card featured-card">
+            <span class="service-tag">Primary service</span>
+            <h3>Driveway Snow Removal</h3>
+            <p>Snow clearing for residential driveways with pricing based on driveway size and the work required.</p>
+            <a href="#pricing">Starting at $40 <span aria-hidden="true">→</span></a>
           </article>
+
           <article class="service-card">
-            <span class="service-number">02</span>
+            <span class="service-tag">Add-on</span>
             <h3>Sidewalk Clearing</h3>
-            <p>Walkway and sidewalk clearing to keep the areas around your property usable after snowfall.</p>
+            <p>Keep sidewalks and primary walkways clear along with your driveway service.</p>
+            <a href="#pricing">Add from $20 <span aria-hidden="true">→</span></a>
           </article>
+
           <article class="service-card">
-            <span class="service-number">03</span>
+            <span class="service-tag">Ice management</span>
             <h3>Salting</h3>
-            <p>Optional salt application for improved traction and additional ice management after clearing.</p>
+            <p>Salt application after clearing to improve traction and help manage remaining ice.</p>
+            <a href="#pricing">From $15–$20 <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" id="about" aria-labelledby="about-heading">
+    <section class="section section-soft" id="why-pioneer" aria-labelledby="why-heading">
+      <div class="page-shell why-layout">
+        <div>
+          <p class="section-label">Why Pioneer</p>
+          <h2 id="why-heading">Service built around reliability, not guesswork.</h2>
+          <p class="section-intro">You should know what service you are getting, what it costs, and how to reach us when conditions change.</p>
+        </div>
+
+        <div class="reason-grid">
+          <article>
+            <span>01</span>
+            <h3>Clear pricing</h3>
+            <p>Simple starting prices help you know what to expect before requesting service.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Direct communication</h3>
+            <p>We keep scheduling and service expectations straightforward.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Recurring options</h3>
+            <p>Need help throughout the winter? Recurring storm service is available.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Local operation</h3>
+            <p>Pioneer Outdoor Services is built to serve Toledo-area properties directly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="how-it-works" aria-labelledby="process-heading">
+      <div class="page-shell">
+        <div class="section-heading dark-heading">
+          <div>
+            <p class="section-label">How it works</p>
+            <h2 id="process-heading">From request to cleared driveway.</h2>
+          </div>
+          <p>A simple process keeps service easy to understand from the first message through completion.</p>
+        </div>
+
+        <ol class="process-grid">
+          <li>
+            <span class="process-number">1</span>
+            <h3>Request service</h3>
+            <p>Tell us where you are and what you need cleared.</p>
+          </li>
+          <li>
+            <span class="process-number">2</span>
+            <h3>Confirm the job</h3>
+            <p>We confirm availability, service scope, and pricing.</p>
+          </li>
+          <li>
+            <span class="process-number">3</span>
+            <h3>We clear it</h3>
+            <p>We complete the agreed driveway, sidewalk, and salting work.</p>
+          </li>
+          <li>
+            <span class="process-number">4</span>
+            <h3>Set up the next one</h3>
+            <p>Choose one-time service or ask about recurring winter clearing.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="service-area" aria-labelledby="area-heading">
+      <div class="page-shell area-layout">
+        <div>
+          <p class="section-label">Service area</p>
+          <h2 id="area-heading">Serving Toledo, Ohio and nearby communities.</h2>
+          <p>Pioneer Outdoor Services is locally focused so routes stay manageable and customers receive dependable service. Availability outside Toledo depends on location and current route capacity.</p>
+          <a class="button button-outline" href="#request-service">Check Your Address</a>
+        </div>
+
+        <div class="area-card">
+          <span class="area-pin" aria-hidden="true">⌖</span>
+          <p class="area-kicker">Primary service area</p>
+          <strong>Toledo, Ohio</strong>
+          <p>Residential snow and ice service with nearby-area availability based on route capacity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing-section" id="pricing" aria-labelledby="pricing-heading">
+      <div class="page-shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Pricing preview</p>
+            <h2 id="pricing-heading">Straightforward starting prices.</h2>
+          </div>
+          <p>Final pricing is confirmed before service and may vary with driveway size, site conditions, and the amount of work required.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <p>Single-car driveway</p>
+            <div class="price"><span>from</span><strong>$40</strong></div>
+            <p>Standard driveway snow clearing.</p>
+          </article>
+          <article class="price-card price-card-featured">
+            <span class="price-badge">Popular</span>
+            <p>Two-car driveway</p>
+            <div class="price"><span>from</span><strong>$50</strong></div>
+            <p>Snow clearing for a standard two-car driveway.</p>
+          </article>
+          <article class="price-card">
+            <p>Sidewalk clearing</p>
+            <div class="price"><span>add</span><strong>$20</strong></div>
+            <p>Add primary sidewalk and walkway clearing.</p>
+          </article>
+          <article class="price-card">
+            <p>Salting</p>
+            <div class="price"><span>from</span><strong>$15–$20</strong></div>
+            <p>Optional salt application after clearing.</p>
+          </article>
+        </div>
+
+        <p class="pricing-note">Ask about recurring winter service when requesting your first clearing.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="about" aria-labelledby="about-heading">
       <div class="page-shell about-layout">
         <div>
-          <p class="section-label">About</p>
-          <h2 id="about-heading">A practical service company built to grow the right way.</h2>
+          <p class="section-label">About Pioneer</p>
+          <h2 id="about-heading">A local service company being built for the long term.</h2>
         </div>
         <div class="about-copy">
-          <p>Pioneer Outdoor Services is an operating company of Pioneer Legacy Works. The business is being built around consistent service, straightforward pricing, disciplined operations, and long-term customer relationships.</p>
-          <p>We start with the services we can perform reliably and expand deliberately as equipment, staffing, and customer demand grow.</p>
+          <p>Pioneer Outdoor Services is an operating company of Pioneer Legacy Works, built around dependable service, disciplined growth, and straightforward customer relationships.</p>
+          <p>We are starting with winter services in the Toledo area and will add additional outdoor property services as equipment, staffing, and customer demand grow.</p>
+          <a class="text-link dark-link" href="https://pioneerlegacyworks.com">Learn about Pioneer Legacy Works</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact" aria-labelledby="contact-heading">
-      <div class="page-shell contact-panel">
-        <div>
-          <p class="section-label">Contact</p>
-          <h2 id="contact-heading">Need service?</h2>
-          <p>Reach out to Pioneer Outdoor Services to discuss availability and the work your property needs.</p>
+    <section class="request-section" id="request-service" aria-labelledby="request-heading">
+      <div class="page-shell request-layout">
+        <div class="request-copy">
+          <p class="section-label">Request service</p>
+          <h2 id="request-heading">Need your driveway cleared?</h2>
+          <p>Send us the basics. We’ll use your information to confirm whether your property is in the current service area and discuss availability and pricing.</p>
+
+          <div class="contact-details" id="contact-details" aria-live="polite">
+            <p class="contact-placeholder">Submit the form to request service. Published phone or email details will also appear here.</p>
+          </div>
         </div>
 
-        <div class="contact-card" id="contact-card">
-          <p class="contact-placeholder">Contact details will appear here when published through the Pioneer backend.</p>
-        </div>
+        <form class="request-form" id="service-request-form" novalidate>
+          <div class="form-row">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" maxlength="120" required>
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" autocomplete="tel" maxlength="40" placeholder="(419) 555-0123">
+            </label>
+          </div>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" maxlength="254" placeholder="you@example.com">
+          </label>
+
+          <label>
+            <span>Service needed</span>
+            <select name="service">
+              <option value="Driveway snow removal">Driveway snow removal</option>
+              <option value="Driveway and sidewalk clearing">Driveway + sidewalk clearing</option>
+              <option value="Snow clearing and salting">Snow clearing + salting</option>
+              <option value="Recurring winter service">Recurring winter service</option>
+              <option value="General inquiry">General inquiry</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Property / service details</span>
+            <textarea name="details" rows="5" maxlength="4500" required placeholder="Tell us your Toledo-area location or neighborhood, driveway size, and anything else we should know."></textarea>
+          </label>
+
+          <p class="form-hint">Please provide either a phone number or email address so we can respond.</p>
+
+          <label class="honeypot" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </label>
+
+          <button class="button button-primary form-submit" type="submit">Send Service Request</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="page-shell footer-row">
-      <p>&copy; <span id="year"></span> <span data-business-name>Pioneer Outdoor Services</span></p>
-      <a href="https://pioneerlegacyworks.com">Pioneer Legacy Works</a>
+    <div class="page-shell footer-grid">
+      <div>
+        <strong data-business-name>Pioneer Outdoor Services</strong>
+        <p>Snow and outdoor property service in the Toledo, Ohio area.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#service-area">Service Area</a>
+        <a href="#request-service">Request Service</a>
+      </nav>
+      <div class="footer-parent">
+        <span>A Pioneer Legacy Works Company</span>
+        <a href="https://pioneerlegacyworks.com">pioneerlegacyworks.com</a>
+      </div>
+    </div>
+    <div class="page-shell footer-bottom">
+      <p>&copy; <span id="year"></span> <span data-business-name>Pioneer Outdoor Services</span>. All rights reserved.</p>
     </div>
   </footer>
 </body>
