@@ -13,6 +13,7 @@ const navMenu = document.querySelector("#main-nav");
 const yearNode = document.querySelector("#year");
 const requestForm = document.querySelector("#service-request-form");
 const formStatus = document.querySelector("#form-status");
+const priceEstimate = document.querySelector("#price-estimate");
 
 async function getJson(url, options = {}) {
   const response = await fetch(url, {
@@ -200,18 +201,85 @@ function getFormValues() {
     name: String(data.get("name") || "").trim(),
     phone: String(data.get("phone") || "").trim(),
     email: String(data.get("email") || "").trim(),
-    service: String(data.get("service") || "General inquiry").trim(),
-    details: String(data.get("details") || "").trim(),
+    address: String(data.get("address") || "").trim(),
+    city: String(data.get("city") || "").trim(),
+    zip: String(data.get("zip") || "").trim(),
+    drivewaySize: String(data.get("drivewaySize") || "").trim(),
+    frequency: String(data.get("frequency") || "").trim(),
+    sidewalk: String(data.get("sidewalk") || "No").trim(),
+    salting: String(data.get("salting") || "No").trim(),
+    notes: String(data.get("notes") || "").trim(),
     website: String(data.get("website") || "").trim(),
   };
 }
 
 function validateRequest(values) {
+  if (!values) return "Unable to read the service request form.";
   if (!values.name) return "Please enter your name.";
   if (!values.phone && !values.email) return "Please provide a phone number or email address.";
   if (values.email && !/^\S+@\S+\.\S+$/.test(values.email)) return "Please enter a valid email address.";
-  if (values.details.length < 5) return "Please tell us a little more about the service you need.";
+  if (!values.address) return "Please enter the property street address.";
+  if (!values.city) return "Please enter the property city.";
+  if (!/^\d{5}(?:-\d{4})?$/.test(values.zip)) return "Please enter a valid ZIP code.";
+  if (!values.drivewaySize) return "Please select a driveway size.";
+  if (!values.frequency) return "Please select one-time or recurring service.";
+  if (values.drivewaySize === "No driveway / sidewalk only" && values.sidewalk !== "Yes") {
+    return "Please select sidewalk clearing for a sidewalk-only request.";
+  }
   return null;
+}
+
+function calculateStartingPrice(values) {
+  if (!values?.drivewaySize) {
+    return { amount: null, label: "Choose a driveway size to see the estimated starting price." };
+  }
+
+  if (values.drivewaySize === "Larger / custom driveway") {
+    return { amount: null, label: "Estimated starting price: custom quote required." };
+  }
+
+  if (values.drivewaySize === "No driveway / sidewalk only") {
+    return { amount: null, label: "Estimated starting price: quote required for sidewalk-only service." };
+  }
+
+  let amount = values.drivewaySize === "Two-car driveway" ? 50 : 40;
+
+  if (values.sidewalk === "Yes") amount += 20;
+  if (values.salting === "Yes") amount += 20;
+
+  const suffix = values.frequency === "Recurring winter service" ? " per clearing" : "";
+  return {
+    amount,
+    label: `Estimated starting price${suffix}: $${amount}. Final price is confirmed before service.`,
+  };
+}
+
+function updatePriceEstimate() {
+  if (!priceEstimate || !requestForm) return;
+
+  const values = getFormValues();
+  const estimate = calculateStartingPrice(values);
+  priceEstimate.textContent = estimate.label;
+}
+
+function buildServiceRequestMessage(values) {
+  const estimate = calculateStartingPrice(values);
+  const lines = [
+    "Pioneer Outdoor Services service request",
+    "",
+    `Property address: ${values.address}, ${values.city}, OH ${values.zip}`,
+    `Driveway size: ${values.drivewaySize}`,
+    `Service frequency: ${values.frequency}`,
+    `Sidewalk clearing: ${values.sidewalk}`,
+    `Salting: ${values.salting}`,
+    `Estimated starting price: ${estimate.amount === null ? "Quote required" : `$${estimate.amount}`}`,
+  ];
+
+  if (values.notes) {
+    lines.push("", "Customer notes:", values.notes);
+  }
+
+  return lines.join("\n");
 }
 
 async function submitServiceRequest(event) {
@@ -231,12 +299,6 @@ async function submitServiceRequest(event) {
   if (submitButton) submitButton.disabled = true;
   setFormStatus("Sending your request…");
 
-  const message = [
-    `Requested service: ${values.service}`,
-    "",
-    values.details,
-  ].join("\n");
-
   try {
     await getJson(`${API_BASE_URL}/api/public/sites/${activeSiteKey}/contact`, {
       method: "POST",
@@ -244,8 +306,8 @@ async function submitServiceRequest(event) {
         name: values.name,
         email: values.email,
         phone: values.phone,
-        subject: `Service request: ${values.service}`,
-        message,
+        subject: `Service request: ${values.drivewaySize} | ${values.frequency}`,
+        message: buildServiceRequestMessage(values),
         businessUnitSlug: BUSINESS_UNIT_SLUG,
         sourcePath: window.location.pathname || "/",
         website: values.website,
@@ -253,6 +315,7 @@ async function submitServiceRequest(event) {
     });
 
     requestForm.reset();
+    updatePriceEstimate();
     setFormStatus("Request received. Pioneer Outdoor Services will follow up using the contact information you provided.", "success");
   } catch (error) {
     console.error("Service request submission failed.", error);
@@ -268,6 +331,8 @@ if (yearNode) {
 
 if (requestForm) {
   requestForm.addEventListener("submit", submitServiceRequest);
+  requestForm.addEventListener("change", updatePriceEstimate);
+  updatePriceEstimate();
 }
 
 setupNavigation();
