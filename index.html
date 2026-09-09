@@ -263,7 +263,7 @@
         <div class="request-copy">
           <p class="section-label">Request service</p>
           <h2 id="request-heading">Need your driveway cleared?</h2>
-          <p>Send us the basics. We’ll use your information to confirm whether your property is in the current service area and discuss availability and pricing.</p>
+          <p>Send us the details below. We’ll use your property information to confirm the service area, availability, and final price before the job is accepted.</p>
 
           <div class="contact-details" id="contact-details" aria-live="polite">
             <p class="contact-placeholder">Submit the form to request service. Published phone or email details will also appear here.</p>
@@ -288,22 +288,68 @@
           </label>
 
           <label>
-            <span>Service needed</span>
-            <select name="service">
-              <option value="Driveway snow removal">Driveway snow removal</option>
-              <option value="Driveway and sidewalk clearing">Driveway + sidewalk clearing</option>
-              <option value="Snow clearing and salting">Snow clearing + salting</option>
-              <option value="Recurring winter service">Recurring winter service</option>
-              <option value="General inquiry">General inquiry</option>
-            </select>
+            <span>Street address</span>
+            <input type="text" name="address" autocomplete="street-address" maxlength="200" placeholder="123 Main St" required>
           </label>
+
+          <div class="form-row">
+            <label>
+              <span>City</span>
+              <input type="text" name="city" autocomplete="address-level2" maxlength="100" value="Toledo" required>
+            </label>
+            <label>
+              <span>ZIP code</span>
+              <input type="text" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" placeholder="43604" required>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Driveway size</span>
+              <select name="drivewaySize" required>
+                <option value="">Select driveway size</option>
+                <option value="Single-car driveway">Single-car driveway — from $40</option>
+                <option value="Two-car driveway">Two-car driveway — from $50</option>
+                <option value="Larger / custom driveway">Larger / custom driveway — quote required</option>
+                <option value="No driveway / sidewalk only">No driveway / sidewalk only</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Service frequency</span>
+              <select name="frequency" required>
+                <option value="One-time service">One-time service</option>
+                <option value="Recurring winter service">Recurring winter service</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Sidewalk clearing</span>
+              <select name="sidewalk" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes — add $20</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Salting</span>
+              <select name="salting" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes — add $20</option>
+              </select>
+            </label>
+          </div>
+
+          <p class="form-hint" id="price-estimate" aria-live="polite">Choose a driveway size to see the estimated starting price.</p>
 
           <label>
-            <span>Property / service details</span>
-            <textarea name="details" rows="5" maxlength="4500" required placeholder="Tell us your Toledo-area location or neighborhood, driveway size, and anything else we should know."></textarea>
+            <span>Customer notes</span>
+            <textarea name="notes" rows="5" maxlength="3500" placeholder="Gate instructions, parking details, areas that need special attention, or anything else we should know."></textarea>
           </label>
 
-          <p class="form-hint">Please provide either a phone number or email address so we can respond.</p>
+          <p class="form-hint">Please provide either a phone number or email address so we can respond. Final pricing is confirmed before service.</p>
 
           <label class="honeypot" aria-hidden="true">
             <span>Website</span>
