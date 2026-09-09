@@ -5,6 +5,18 @@ const DEDICATED_SITE_KEY = "pioneer-outdoor-services";
 
 let activeSiteKey = PARENT_SITE_KEY;
 
+function loadResponsiveStyles() {
+  if (document.querySelector('link[data-mobile-styles="true"]')) return;
+
+  const stylesheet = document.createElement("link");
+  stylesheet.rel = "stylesheet";
+  stylesheet.href = "mobile.css";
+  stylesheet.dataset.mobileStyles = "true";
+  document.head.append(stylesheet);
+}
+
+loadResponsiveStyles();
+
 const businessNameNodes = document.querySelectorAll("[data-business-name]");
 const businessDescriptionNode = document.querySelector("[data-business-description]");
 const contactDetails = document.querySelector("#contact-details");
@@ -166,17 +178,48 @@ async function loadBackendContent() {
 function setupNavigation() {
   if (!navToggle || !navMenu) return;
 
+  const closeMenu = () => {
+    navToggle.setAttribute("aria-expanded", "false");
+    navMenu.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+  };
+
+  const openMenu = () => {
+    navToggle.setAttribute("aria-expanded", "true");
+    navMenu.classList.add("is-open");
+    document.body.classList.add("nav-open");
+  };
+
   navToggle.addEventListener("click", () => {
-    const open = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", String(!open));
-    navMenu.classList.toggle("is-open", !open);
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
   navMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navToggle.setAttribute("aria-expanded", "false");
-      navMenu.classList.remove("is-open");
-    });
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
+      closeMenu();
+      navToggle.focus();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!navMenu.classList.contains("is-open")) return;
+    if (navMenu.contains(event.target) || navToggle.contains(event.target)) return;
+    closeMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 820) {
+      closeMenu();
+    }
   });
 }
 
