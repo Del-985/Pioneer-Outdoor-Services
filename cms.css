@@ -61,6 +61,34 @@
   background: rgba(31, 77, 58, 0.06);
 }
 
+.cms-managed-page {
+  min-height: 62vh;
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.cms-managed-page__shell {
+  max-width: 900px;
+}
+
+.cms-managed-page h1 {
+  max-width: 780px;
+  margin: 0.5rem 0 1.5rem;
+  font-size: clamp(2.3rem, 6vw, 4.5rem);
+  line-height: 1.04;
+}
+
+.cms-managed-page__body {
+  display: grid;
+  gap: 1rem;
+  color: #3d4a56;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.cms-managed-page__body p {
+  margin: 0;
+}
+
 @media (max-width: 700px) {
   .cms-announcement__inner {
     align-items: flex-start;
