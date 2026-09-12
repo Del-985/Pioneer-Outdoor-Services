@@ -73,6 +73,7 @@ async function handleAuthSubmit(event) {
   const password = String(data.get('password') || '');
   const displayName = String(data.get('displayName') || '').trim();
   const phone = String(data.get('phone') || '').trim();
+  const smsConsent = data.get('smsConsent') === 'true';
 
   setSubmitting(true);
 
@@ -90,6 +91,7 @@ async function handleAuthSubmit(event) {
           phone,
           password,
           siteKey: CUSTOMER_SITE_KEY,
+          smsConsent,
         }),
       });
       setAuthStatus('Account created. Opening your customer portal…', true);
