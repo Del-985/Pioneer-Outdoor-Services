@@ -1,0 +1,242 @@
+.customer-auth-main {
+  min-height: calc(100vh - 80px);
+  padding: clamp(2rem, 6vw, 5rem) 0;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(199, 154, 59, 0.12), transparent 30%),
+    var(--cream);
+}
+
+.customer-auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: stretch;
+}
+
+.customer-auth-intro,
+.customer-auth-card {
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.customer-auth-intro {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  min-height: 560px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  background: linear-gradient(150deg, var(--navy-soft), var(--navy-deep) 72%);
+  color: var(--white);
+}
+
+.customer-auth-intro::after {
+  position: absolute;
+  right: -130px;
+  bottom: -145px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(228, 189, 104, 0.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 54px rgba(228, 189, 104, 0.035), 0 0 0 108px rgba(228, 189, 104, 0.025);
+  content: '';
+}
+
+.customer-auth-intro > * {
+  position: relative;
+  z-index: 1;
+}
+
+.customer-auth-intro .section-label {
+  color: var(--gold-light);
+}
+
+.customer-auth-intro h1 {
+  max-width: 520px;
+  margin-top: 0.6rem;
+  color: var(--white);
+  font-size: clamp(2.35rem, 5vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.customer-auth-intro p {
+  max-width: 520px;
+  margin-top: 1.2rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 1rem;
+}
+
+.account-benefits {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 2rem;
+  list-style: none;
+}
+
+.account-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 650;
+}
+
+.account-benefits li::before {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  content: '';
+}
+
+.customer-auth-card {
+  align-self: center;
+  border: 1px solid var(--border);
+  padding: clamp(1.5rem, 4vw, 2.7rem);
+  background: var(--white);
+}
+
+.customer-auth-card .section-label {
+  margin-bottom: 0.55rem;
+}
+
+.customer-auth-card h2 {
+  color: var(--navy-deep);
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.customer-auth-description {
+  margin-top: 0.65rem;
+  color: var(--slate);
+}
+
+.customer-auth-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.customer-auth-form label {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.customer-auth-form label > span {
+  color: var(--navy-deep);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.customer-auth-form input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  background: var(--white);
+  color: var(--charcoal);
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.customer-auth-form input:focus {
+  border-color: var(--gold);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(199, 154, 59, 0.14);
+}
+
+.customer-auth-form small {
+  color: var(--slate);
+  font-size: 0.76rem;
+}
+
+.customer-auth-form .button {
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.customer-auth-status {
+  min-height: 1.35rem;
+  color: var(--error);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.customer-auth-status.is-success {
+  color: var(--success);
+}
+
+.customer-auth-switch {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  color: var(--slate);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.customer-auth-switch a,
+.customer-auth-secondary-link {
+  color: var(--navy);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.customer-auth-secondary-link {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.customer-auth-card button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+@media (max-width: 860px) {
+  .customer-auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-auth-intro {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .customer-auth-main {
+    padding: 1rem 0 2rem;
+  }
+
+  .customer-auth-layout {
+    width: min(calc(100% - 1.5rem), var(--page-width));
+    gap: 1rem;
+  }
+
+  .customer-auth-intro,
+  .customer-auth-card {
+    border-radius: 18px;
+  }
+
+  .customer-auth-intro {
+    padding: 1.5rem;
+  }
+
+  .customer-auth-intro h1 {
+    font-size: 2rem;
+  }
+
+  .customer-auth-intro p {
+    margin-top: 0.8rem;
+  }
+
+  .account-benefits {
+    margin-top: 1.25rem;
+  }
+
+  .customer-auth-card {
+    padding: 1.35rem;
+  }
+}
