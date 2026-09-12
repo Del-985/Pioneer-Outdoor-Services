@@ -49,6 +49,11 @@ async function customerRequest(path, options = {}) {
   }
 
   if (!response.ok) {
+    const validationErrors = payload?.error?.details?.fieldErrors;
+    if (validationErrors && typeof validationErrors === 'object') {
+      const firstMessage = Object.values(validationErrors).flat().find(Boolean);
+      if (firstMessage) throw new Error(String(firstMessage));
+    }
     throw new Error(payload?.error?.message || payload?.message || 'Unable to complete that request.');
   }
 
@@ -60,14 +65,19 @@ async function handleAuthSubmit(event) {
   if (!authForm) return;
 
   setAuthStatus('');
-  setSubmitting(true);
 
+  // Read values before disabling controls. Disabled form controls are omitted from FormData.
   const data = new FormData(authForm);
   const mode = authForm.dataset.mode;
+  const email = String(data.get('email') || '').trim();
+  const password = String(data.get('password') || '');
+  const displayName = String(data.get('displayName') || '').trim();
+  const phone = String(data.get('phone') || '').trim();
+
+  setSubmitting(true);
 
   try {
     if (mode === 'register') {
-      const password = String(data.get('password') || '');
       if (password.length < 10) {
         throw new Error('Password must be at least 10 characters.');
       }
@@ -75,9 +85,9 @@ async function handleAuthSubmit(event) {
       await customerRequest('/api/customer/auth/register', {
         method: 'POST',
         body: JSON.stringify({
-          displayName: String(data.get('displayName') || '').trim(),
-          email: String(data.get('email') || '').trim(),
-          phone: String(data.get('phone') || '').trim(),
+          displayName,
+          email,
+          phone,
           password,
           siteKey: CUSTOMER_SITE_KEY,
         }),
@@ -87,8 +97,8 @@ async function handleAuthSubmit(event) {
       await customerRequest('/api/customer/auth/login', {
         method: 'POST',
         body: JSON.stringify({
-          email: String(data.get('email') || '').trim(),
-          password: String(data.get('password') || ''),
+          email,
+          password,
           siteKey: CUSTOMER_SITE_KEY,
         }),
       });
