@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="Create a Pioneer Outdoor Services customer portal account.">
+  <title>Create Customer Account | Pioneer Outdoor Services</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile.css" data-site-style="mobile">
+  <link rel="stylesheet" href="p0.css" data-site-style="p0">
+  <link rel="stylesheet" href="auth.css">
+  <script src="app.js" defer></script>
+  <script src="customer-auth.js" defer></script>
+</head>
+<body data-page="register">
+  <header class="site-header">
+    <nav class="navbar page-shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Pioneer Outdoor Services home">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span class="brand-copy">
+          <strong data-business-name>Pioneer Outdoor Services</strong>
+          <small>A Pioneer Legacy Works Company</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+      <div class="nav-menu" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="login.html">Customer Login</a></li>
+        </ul>
+        <a class="nav-cta" href="register.html" aria-current="page">Register</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="customer-auth-main">
+    <div class="page-shell customer-auth-layout">
+      <section class="customer-auth-intro" aria-labelledby="register-account-heading">
+        <div>
+          <p class="section-label">Customer portal</p>
+          <h1 id="register-account-heading">Set up your service account before the next storm.</h1>
+          <p>Your account keeps service locations, requests, scheduling, and contact preferences together so future requests take less time.</p>
+          <ul class="account-benefits">
+            <li>Save one or more service properties</li>
+            <li>Request a preferred date and time</li>
+            <li>See pending and scheduled work</li>
+            <li>Update contact and notification preferences</li>
+          </ul>
+        </div>
+        <a class="customer-auth-secondary-link" href="index.html">Return to Pioneer Outdoor Services</a>
+      </section>
+
+      <section class="customer-auth-card" aria-labelledby="register-heading">
+        <p class="section-label">Customer registration</p>
+        <h2 id="register-heading">Create your account</h2>
+        <p class="customer-auth-description">Register once, then use this same account on the Pioneer Outdoor Services customer portal.</p>
+
+        <form class="customer-auth-form" data-customer-auth-form data-mode="register">
+          <label>
+            <span>Name</span>
+            <input type="text" name="displayName" autocomplete="name" maxlength="160" required>
+          </label>
+          <label>
+            <span>Email address</span>
+            <input type="email" name="email" autocomplete="email" maxlength="320" required>
+          </label>
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" autocomplete="tel" maxlength="50" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" autocomplete="new-password" minlength="10" maxlength="200" required>
+            <small>Use at least 10 characters.</small>
+          </label>
+          <p class="customer-auth-status" data-auth-status role="status" aria-live="polite"></p>
+          <button class="button button-primary" type="submit">Create Account</button>
+        </form>
+
+        <p class="customer-auth-switch">Already registered? <a href="login.html">Sign in</a></p>
+        <p class="customer-auth-description">Account information is handled according to our <a class="customer-auth-secondary-link" href="privacy.html">Privacy Policy</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div>
+        <strong data-business-name>Pioneer Outdoor Services</strong>
+        <p>Snow and outdoor property service in the Toledo, Ohio area.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="login.html">Customer Login</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <div class="footer-parent">
+        <span>A Pioneer Legacy Works Company</span>
+        <a href="https://pioneerlegacyworks.com">pioneerlegacyworks.com</a>
+      </div>
+    </div>
+    <div class="page-shell footer-bottom">
+      <p>&copy; <span id="year"></span> <span data-business-name>Pioneer Outdoor Services</span>. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
