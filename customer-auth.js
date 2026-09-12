@@ -1,6 +1,6 @@
 const CUSTOMER_API_BASE = 'https://api.pioneerlegacyworks.com';
 const CUSTOMER_SITE_KEY = 'pioneer-outdoor-services';
-const CUSTOMER_PORTAL_URL = 'https://customers.pioneeroutdoorservices.com/app';
+const CUSTOMER_PORTAL_URL = 'https://customer.pioneeroutdoorservices.com/app';
 
 const authForm = document.querySelector('[data-customer-auth-form]');
 const authStatus = document.querySelector('[data-auth-status]');
