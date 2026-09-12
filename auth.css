@@ -190,6 +190,15 @@
   margin-top: 1rem;
 }
 
+.customer-auth-intro .customer-auth-secondary-link {
+  color: var(--gold-light);
+}
+
+.customer-auth-card .customer-auth-description .customer-auth-secondary-link {
+  display: inline;
+  margin-top: 0;
+}
+
 .customer-auth-card button:disabled {
   cursor: wait;
   opacity: 0.62;
