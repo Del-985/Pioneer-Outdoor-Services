@@ -79,12 +79,21 @@
             <input type="password" name="password" autocomplete="new-password" minlength="10" maxlength="200" required>
             <small>Use at least 10 characters.</small>
           </label>
+
+          <label class="customer-auth-consent">
+            <input type="checkbox" name="smsConsent" value="true">
+            <span class="customer-auth-consent-copy">
+              <strong>Optional transactional text messages</strong>
+              I agree to receive transactional SMS from Pioneer Outdoor Services at the phone number provided for service confirmations, schedule changes, and weather/service updates. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="terms.html" target="_blank" rel="noopener">Terms</a>.
+            </span>
+          </label>
+
           <p class="customer-auth-status" data-auth-status role="status" aria-live="polite"></p>
           <button class="button button-primary" type="submit">Create Account</button>
         </form>
 
         <p class="customer-auth-switch">Already registered? <a href="login.html">Sign in</a></p>
-        <p class="customer-auth-description">Account information is handled according to our <a class="customer-auth-secondary-link" href="privacy.html">Privacy Policy</a>.</p>
+        <p class="customer-auth-description">Account information is handled according to our <a class="customer-auth-secondary-link" href="privacy.html">Privacy Policy</a> and <a class="customer-auth-secondary-link" href="terms.html">Terms</a>.</p>
       </section>
     </div>
   </main>
@@ -100,6 +109,7 @@
         <a href="services.html">Services</a>
         <a href="login.html">Customer Login</a>
         <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </nav>
       <div class="footer-parent">
         <span>A Pioneer Legacy Works Company</span>
